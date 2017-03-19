@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Agency - Start Bootstrap Theme</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js" integrity="sha384-0s5Pv64cNZJieYFkXYOTId2HMA2Lfb6q2nAcx2n0RTLUnCAoTTsS0nKEO27XyKcY" crossorigin="anonymous"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" integrity="sha384-ZoaMbDF+4LeFxg6WdScQ9nnR1QC2MIRxA1O9KWEXQwns1G8UNyIEZIQidzb0T1fo" crossorigin="anonymous"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+<h1>Отзывы</h1>
+<div class="comments"></div>
+<script id="template" type="text/x-handlebars-template">
+                        {{#each this}}
+                            <div class="col-xs-12 col-md-6">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <strong>{{name}}</strong>
+                                    </div>
+                                    <div class="panel-body">
+                                        {{comment}}<a id='{{id}}' class="btn btn-danger pull-right delete"><i class="glyphicon glyphicon-remove"></i></a>
+                                    </div>
+                                    <div class="panel-body">
+                                           <p>
+                                            {{#if anwsers}}
+                                            <h4>Редактирование ответа.</h4>
+                                               <textarea id='answer{{anwsers.0.id}}' class="form-control">{{anwsers.0.anwser}}</textarea>
+                                               <a id='{{anwsers.0.id}}' class="btn btn-primary pull-right update-answer">
+                                                   <i class="   glyphicon glyphicon-pencil"></i>
+                                               </a>
+                                            
+                                               <a id='{{anwsers.0.id}}' class="btn btn-danger pull-right delete-answer"><i class="glyphicon glyphicon-remove"></i></a>
+
+                                            {{else}}
+                                            <h4>Создание ответа.</h4>
+                                                <textarea id='create-answer{{id}}' class="form-control" ></textarea>
+                                                <a id='{{id}}' class="btn btn-primary pull-right create-answer"><i class="glyphicon glyphicon-ok"></i></a>
+                                            {{/if}}
+                                            </p>
+                                    </div>
+                                </div>
+                            </div>
+                        {{/each}}
+                    </script>
+
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js'></script>
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/comments.js"></script>
+</body>
+
+</html>
