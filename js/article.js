@@ -39,36 +39,36 @@ var articles = [
 		}
 	]
 function getArticlesAll(){
-	$.ajax({
+	/*$.ajax({
 		url: "http://"+host+"/api/article/articles",
 		type: "GET",
 		processData: false,
-		success: function(data) {
+		success: function(data) {*/
 		    var source   = $("#list").html();
 		    var template = Handlebars.compile(source);
 		    $('#articles').html(template(articles));
 		    $('.btn-view').click(function(event){
 				showArticle(event.currentTarget.id);
 			})
-		},
+		/*},
 		error: function(data) {
 		    console.error(data.status)
 		}
-	});
+	});*/
 }
 function getArticle(id){
-	$.ajax({
+	/*$.ajax({
 		url: "http://"+host+"/api/article/articles",
 		type: "GET",
 		processData: false,
-		success: function(data) {
+		success: function(data) {*/
 		    var source   = $("#item").html();
 		    var template = Handlebars.compile(source);
 		    $('#articles').html(template(articles[id-1]));
-		},
+		/*},
 		error: function(data) {
 		    console.error(data.status)
 		}
-	});
+	});*/
 }
 getArticlesAll()
