@@ -1,8 +1,6 @@
-$.routes.add('/articles.html/{id}/','article', function() {
-    console.log(this);
+$.routes.add('/{id}/','article', function() {
 });
-$.routes.add('/articles.html','articles-all', function() {
-    console.log(this);
+$.routes.add('/','articles-all', function() {
 });
 function showArticle(id){
 	$.routes.find('article').routeTo({
@@ -50,7 +48,6 @@ function getArticlesAll(){
 		    var template = Handlebars.compile(source);
 		    $('#articles').html(template(articles));
 		    $('.btn-view').click(function(event){
-		    	console.log(event.currentTarget.id)
 				showArticle(event.currentTarget.id);
 			})
 		},
